@@ -1,6 +1,8 @@
 package bootstrap
 
 import (
+	"goravel/app/modular"
+
 	"github.com/goravel/framework/ai"
 	"github.com/goravel/framework/auth"
 	"github.com/goravel/framework/cache"
@@ -30,6 +32,8 @@ import (
 
 func Providers() []foundation.ServiceProvider {
 	return []foundation.ServiceProvider{
+		// First, so module views are registered before anything touches routing.
+		&modular.ModuleServiceProvider{},
 		&log.ServiceProvider{},
 		&cache.ServiceProvider{},
 		&hash.ServiceProvider{},
