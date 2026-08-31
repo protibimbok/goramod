@@ -27,6 +27,7 @@ func (r *Registry) Register(modules ...Module) {
 		if _, ok := r.names[module.Name()]; ok {
 			panic(fmt.Sprintf("modular: duplicate module %q", module.Name()))
 		}
+		checkReceivers(module)
 		r.modules = append(r.modules, module)
 		r.names[module.Name()] = true
 	}
