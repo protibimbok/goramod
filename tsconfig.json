@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "types": ["vite/client"],
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noFallthroughCasesInSwitch": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "skipLibCheck": true,
+    "allowJs": false,
+    "resolveJsonModule": true,
+    "paths": {
+      "@/*": [
+        "./resources/js/*"
+      ],
+      "@auth/*": [
+        "./modules/auth/resources/js/*"
+      ]
+    }
+  },
+  "include": ["resources/**/*", "modules/*/resources/**/*", "vite.config.ts", "scripts/**/*"],
+  "exclude": ["node_modules", "public"]
+}

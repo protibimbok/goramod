@@ -3,6 +3,8 @@ package bootstrap
 import (
 	"goravel/app/modular"
 
+	vite "goravel/app/vite"
+
 	"github.com/goravel/framework/ai"
 	"github.com/goravel/framework/auth"
 	"github.com/goravel/framework/cache"
@@ -34,6 +36,8 @@ func Providers() []foundation.ServiceProvider {
 	return []foundation.ServiceProvider{
 		// First, so module views are registered before anything touches routing.
 		&modular.ModuleServiceProvider{},
+		// Register must run before the gin engine compiles the template set.
+		&vite.ServiceProvider{},
 		&log.ServiceProvider{},
 		&cache.ServiceProvider{},
 		&hash.ServiceProvider{},
